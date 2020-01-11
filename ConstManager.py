@@ -1,0 +1,1 @@
+crowd_counting_model_path = './crowd_counting.om'
