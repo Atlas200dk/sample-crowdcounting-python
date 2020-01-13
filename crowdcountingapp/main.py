@@ -10,6 +10,7 @@ import re
 import client
 import threading
 import ChannelManager
+from graph import *
 
 #判断输入是否正确（通过rtsp://和.MP4后缀判断）
 lenofUrl = len(sys.argv)
@@ -32,7 +33,7 @@ else:
     mp4_url = False
 
 crowd_counting_app = crowd_counting.CrowdCountingInference()
-crowd_counting_app.clientsocket = client.PresenterSocketClient(("192.168.1.122", 7006), 5, None)
+crowd_counting_app.clientsocket = client.PresenterSocketClient((presenter_ip, presenter_port), 5, None)
 thread_1 = threading.Thread(target=crowd_counting_app.clientsocket.start_connect)
 thread_1.setDaemon(True)
 thread_1.start()
