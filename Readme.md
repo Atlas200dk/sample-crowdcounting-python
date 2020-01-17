@@ -96,6 +96,8 @@
 
 ## 环境配置<a name="zh-cn_topic_0219905762_section1759513564117"></a>
 
+**注：开发板上hiai库、opencv库、相关依赖已安装可跳过此步骤**
+
 1.  配置开发板联网。
     1.  不断开usb连接的情况下，开发板通过网线与可以上网的网口相连。
     2.  在Mind Studio所在Ubuntu服务器中，以HwHiAiUser用户SSH登录到Host侧。
