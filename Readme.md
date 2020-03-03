@@ -11,89 +11,20 @@
 -   已完成Atlas 200 DK开发者板与Mind Studio的连接，SD卡的制作、编译环境的配置等。
 -   由于需要配置开发板联网，默认设置为USB连接，开发板地址为192.168.1.2
 
-## 软件准备<a name="zh-cn_topic_0219905762_section8534138124114"></a>
+## 部署<a name="zh-cn_topic_0203223294_section081240125311"></a>
 
-运行此应用前，需要按照此章节进行相关的环境配置并获取源码包。
+1.  部署，可以选择如下快速部署或者常规方法部署，二选一即可；
 
-1.  <a name="zh-cn_topic_0219905762_li953280133816"></a>获取源码包。
+    1.1 快速部署，请参考：https://gitee.com/Atlas200DK/faster-deploy 。
 
-    将[https://gitee.com/Atlas200DK/sample-crowdcounting-python](https://gitee.com/Atlas200DK/sample-crowdcounting-python)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：$HOME/sample-crowdcounting-python。
+    >![](public_sys-resources/icon-note.gif) **说明：**   
+    >-   该快速部署脚本可以快速部署多个案例，请选择crowdcounting-python案例部署即可。  
+    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式，请转**1.2 常规部署**。
 
-2.  <a name="zh-cn_topic_0219905762_li12291771229"></a>获取此应用中所需要的网络模型。
+    1.2 常规部署，请参考：https://gitee.com/Atlas200DK/sample-README/tree/master/sample-crowdcounting-python 。
 
-    参考[表 密集人群人数统计\(python\)使用模型](#zh-cn_topic_0219905762_table1119094515272)获取此应用中所用到的原始网络模型及其对应的权重文件，并将其存放到Mind Studio所在Ubuntu服务器的任意目录，例如：$HOME/ascend/models/crowdcounting-python。
-
-    **表 1**  密集人群人数统计\(python\)使用模型
-
-    <a name="zh-cn_topic_0219905762_table1119094515272"></a>
-    <table><thead align="left"><tr id="zh-cn_topic_0219905762_row677354502719"><th class="cellrowborder" valign="top" width="12.85%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0219905762_p167731845122717"><a name="zh-cn_topic_0219905762_p167731845122717"></a><a name="zh-cn_topic_0219905762_p167731845122717"></a>模型名称</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="12.04%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0219905762_p277317459276"><a name="zh-cn_topic_0219905762_p277317459276"></a><a name="zh-cn_topic_0219905762_p277317459276"></a>模型说明</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="75.11%" id="mcps1.2.4.1.3"><p id="zh-cn_topic_0219905762_p9773114512270"><a name="zh-cn_topic_0219905762_p9773114512270"></a><a name="zh-cn_topic_0219905762_p9773114512270"></a>模型下载路径</p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="zh-cn_topic_0219905762_row3122314144215"><td class="cellrowborder" valign="top" width="12.85%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0219905762_p13106121801715"><a name="zh-cn_topic_0219905762_p13106121801715"></a><a name="zh-cn_topic_0219905762_p13106121801715"></a>crowd_counting</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="12.04%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0219905762_p13106171831710"><a name="zh-cn_topic_0219905762_p13106171831710"></a><a name="zh-cn_topic_0219905762_p13106171831710"></a>密集人群人数统计网络模型。</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="75.11%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0219905762_p110671813170"><a name="zh-cn_topic_0219905762_p110671813170"></a><a name="zh-cn_topic_0219905762_p110671813170"></a>请参考<a href="https://gitee.com/HuaweiAscend/models/tree/master/computer_vision/object_detect/crowd_counting" target="_blank" rel="noopener noreferrer">https://gitee.com/HuaweiAscend/models/tree/master/computer_vision/object_detect/crowd_counting</a>目录中README.md下载原始网络模型文件。</p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-3.  将原始网络模型转换为适配昇腾AI处理器的模型。
-    1.  在Mind Studio操作界面的顶部菜单栏中选择“Tool \> Convert Model”，进入模型转换界面。
-    2.  在弹出的**Convert Model**操作界面中，Model File与Weight File分别选择[步骤2](#zh-cn_topic_0219905762_li12291771229)中下载的模型文件和权重文件。
-        -   **Model Name**填写为[表 检测网络应用\(python\)使用模型](#zh-cn_topic_0219905762_table1119094515272)对应的**模型名称**。
-        -   **Input\_shape中name填写为input\_1，NHWC分别填写为1、768、1024、1。**
-        -   **Input Image Format 选择 RGB888\_U8**。
-        -   **关闭Model Image Format。**
-        -   **Mean Less分别填写为127.5、127.5、127.5。**
-        -   **Multiplying Factor分别填写为0.0078125、0.0078125、0.0078125。**
-        -   **其他保持默认值。**
-
-    3.  单击OK开始转换模型。
-
-        1.1.0.0和1.3.0.0版本模型转换成功后，后缀为.om的离线模型存放地址为：**$HOME/tools/che/model-zoo/my-model/xxx**。
-
-        1.31.0.0及以上版本模型转换成功后，后缀为.om的离线模型存放地址为：**$HOME/modelzoo/xxx/device/xxx.om**。
-
-    4.  将转换好的模型文件（.om文件）上传到[步骤1](#zh-cn_topic_0219905762_li953280133816)中源码所在路径下的“sample-crowdcounting-python/model”目录下。
-
-4.  以Mind Studio安装用户登录Mind Studio所在Ubuntu服务器，并设置环境变量DDK\_HOME。
-
-    **vim \~/.bashrc**
-
-    1.  1.3.0.0版本执行如下命令在最后一行添加DDK\_HOME及LD\_LIBRARY\_PATH的环境变量。
-
-        **export DDK\_HOME=$HOME/tools/che/ddk/ddk**
-
-        **export LD\_LIBRARY\_PATH=$DDK\_HOME/uihost/lib**
-
-    2.  1.31.0.0及以上版本执行如下命令在最后一行添加环境变量
-
-        **export tools\_version=_1.31.X.X_**
-
-        **export DDK\_HOME=\\$HOME/.mindstudio/huawei/ddk/\\$tools\_version/ddk**
-
-        **export NPU\_DEVICE\_LIB=$DDK\_HOME/../RC/host-aarch64\_Ubuntu16.04.3/lib**
-
-        **export LD\_LIBRARY\_PATH=\\$DDK\_HOME/lib/x86\_64-linux-gcc5.4:\\$DDK\_HOME/uihost/lib**
-        
-        **export PATH=\\$PATH:\\$DDK\_HOME/uihost/bin**
-
-    >![](public_sys-resources/icon-note.gif) **说明：**     
-    >-   1.31.0.0及以上版本环境变量设置时1.31.X.X为DDK版本号，可以通过安装的DDK的包名获取，如DDK包的包名为Ascend\_DDK-1.31.T15.B150-1.1.1-x86\_64.ubuntu16.04.tar.gz，则此DDK的版本号为1.31.T15.B150。  
-    >-   如果此环境变量已经添加，则此步骤可跳过。  
-
-    输入:wq!保存退出。
-
-    执行如下命令使环境变量生效。
-
-    **source \~/.bashrc**
+    >![](public_sys-resources/icon-note.gif) **说明：**   
+    >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程会更加了解。
 
 
 ## 环境配置<a name="zh-cn_topic_0219905762_section1759513564117"></a>
@@ -196,7 +127,7 @@
 
 ## 部署<a name="zh-cn_topic_0219905762_section1872516528910"></a>
 
-1.  以Mind Studio安装用户进入crowdcounting-python应用代码所在根目录，如：$HOME/sample-sample-crowdcounting-python。
+1.  以Mind Studio安装用户进入crowdcounting-python应用代码所在根目录，如：$HOME/sample-crowdcounting-python。
 2.  <a name="zh-cn_topic_0219905762_li9634105881418"></a>执行部署脚本，进行工程环境准备，Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
 
     **bash deploy.sh** _host\_ip_
