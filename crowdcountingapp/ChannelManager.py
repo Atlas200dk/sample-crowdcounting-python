@@ -1,5 +1,4 @@
 import presenter_message_pb2 as pb2
-import presenter_types
 import socket
 import struct
 
@@ -9,23 +8,18 @@ class ChannelManager(object):
     '''
     Open channel,and return send data
     '''
-    def OpenChannel(self, channel_name='video', content_type=1):
+    def OpenChannelAndReturnSendData(self, channel_name='video', content_type=1):
         message = pb2.OpenChannelRequest()
         message.channel_name = channel_name
         message.content_type = content_type
         msg_data = message.SerializeToString()
         msg_data_len = len(msg_data)
         msg_name = pb2._OPENCHANNELREQUEST.full_name
-        # print('msg_name:', msg_name)
         msg_name_len = len(msg_name)
-        # print('msg_name_len:', msg_name_len)
         msg_total_len = msg_name_len + msg_data_len + self.msg_head_len
-        # print('msg_total_len:', msg_total_len)
         data = b''
         msg_total_len = socket.htonl(msg_total_len)
-        # print('socket.htonl(msg_total_len)=', msg_total_len)
         pack_data = struct.pack('IB', msg_total_len, msg_name_len)
-        # print('pack_data length=', len(pack_data))
         data += pack_data
         data += msg_name.encode()
         data += msg_data
@@ -49,16 +43,12 @@ class ChannelManager(object):
         buf = request.SerializeToString()
         msg_body_len = len(buf)
         msg_name = pb2._PRESENTIMAGEREQUEST.full_name
-        # print('msg_name:', msg_name)
         msg_name_len = len(msg_name)
 
         msg_total_len = msg_name_len + msg_body_len + self.msg_head_len
-        # print('msg_total_len:', msg_total_len)
         data = b''
         msg_total_len = socket.htonl(msg_total_len)
-        # print('socket.htonl(msg_total_len)=', msg_total_len)
         pack_data = struct.pack('IB', msg_total_len, msg_name_len)
-        # print('pack_data length=', len(pack_data))
         data += pack_data
         data += msg_name.encode()
         data += buf

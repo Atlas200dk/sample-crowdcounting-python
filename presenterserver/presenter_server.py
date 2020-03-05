@@ -92,7 +92,7 @@ def close_all_thread(signum, frame):
 
     logging.info("presenter server exit by Ctrl + c")
 
-    sys.exit()
+    exit(1)()
 
 def check_server_exist():
     pid = os.getpid()
