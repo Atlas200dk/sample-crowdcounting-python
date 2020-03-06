@@ -45,7 +45,7 @@ app_path="${script_path}/.."
 function modify_graph()
 {
     echo "Modify presenter server information in graph.config..."
-    touch ${app_path}/crowdcountingapp/graph.py 
+    touch ${app_path}/crowdcountingapp/presenter.ini
     presenter_ip=`grep presenter_server_ip ${app_path}/presenterserver/crowd_counting/config/config.conf | awk -F '=' '{print $2}' | sed 's/[^0-9.]//g'`
     if [[ $? -ne 0 ]];then
         echo "ERROR: get presenter server ip failed, please check ${app_path}/presenterserver/crowd_counting/config/config.conf."
@@ -57,9 +57,10 @@ function modify_graph()
         echo "ERROR: get presenter server port failed, please check ${app_path}/presenterserver/crowd_counting/config/config.conf."
         return 1
     fi
-    `> ${app_path}/crowdcountingapp/graph.py`
-    echo "presenter_ip = '${presenter_ip}'" >> ${app_path}/crowdcountingapp/graph.py
-    echo "presenter_port = ${presenter_port}" >> ${app_path}/crowdcountingapp/graph.py
+    `> ${app_path}/crowdcountingapp/presenter.ini`
+    echo "[presenter]" >> ${app_path}/crowdcountingapp/presenter.ini
+    echo "presenter_ip = ${presenter_ip}" >> ${app_path}/crowdcountingapp/presenter.ini
+    echo "presenter_port = ${presenter_port}" >> ${app_path}/crowdcountingapp/presenter.ini
     return 0
 }
 
@@ -81,7 +82,7 @@ function main()
         exit 1
     fi
     
-    echo "Finish to prepare facedetectionapp graph."
+    echo "Finish to prepare crowdcountingapp graph."
     exit 0
 }
 

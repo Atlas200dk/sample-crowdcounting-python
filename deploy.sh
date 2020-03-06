@@ -33,7 +33,7 @@ main()
         exit 1
     fi
     
-    echo "[Step] Prepare presenter server information and graph.py..."
+    echo "[Step] Prepare presenter server information and presenter.ini..."
     bash ${script_path}/script/prepare_graph.sh ${remote_host}
 
     deploy_app

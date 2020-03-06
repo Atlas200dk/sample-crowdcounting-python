@@ -8,7 +8,7 @@ import re
 import client
 import threading
 from ChannelManager import ChannelManager
-from graph import *
+import ConfigParser
 
 def show_message(msg):
     print("%s", msg)
@@ -33,7 +33,10 @@ if __name__ == "__main__":
             mp4_url = True
     else:
         mp4_url = False
-
+    conf = ConfigParser.ConfigParser()
+    a = conf.read("presenter.ini")
+    presenter_ip = conf.get("presenter", "presenter_ip")
+    presenter_port = int(conf.get("presenter", "presenter_port"))
     crowd_counting_app = crowd_counting.CrowdCountingInference()
     crowd_counting_app.clientsocket = client.PresenterSocketClient((presenter_ip, presenter_port), 5, None)
     thread_app = threading.Thread(target=crowd_counting_app.clientsocket.start_connect)
