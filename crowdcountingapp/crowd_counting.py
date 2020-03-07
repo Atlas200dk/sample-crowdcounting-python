@@ -56,7 +56,11 @@ class CrowdCountingInference(object):
         detection_result = []
         sum = 0.0
         sum = np.sum(resultList)
-        detection_result.append([None, None, None, None, "number", sum])
+        point_lt_x = None
+        point_lt_y = None
+        point_rb_x = None
+        point_rb_y = None
+        detection_result.append([point_lt_x, point_lt_y, point_rb_x, point_rb_y, "number", sum])
         return detection_result
 
     def GetImageFrameData(self, deteInfo, input_image):
