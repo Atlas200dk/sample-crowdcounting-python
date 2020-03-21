@@ -35,11 +35,11 @@
 
 1.  配置开发板联网。
 
-    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_NetworkConnect](https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK_NetworkConnect)  ，进行开发板网络连接配置。
+    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_NetworkConnect](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_NetworkConnect)  ，进行开发板网络连接配置。
 
 2.  安装环境依赖。、
 
-    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_Environment](https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK_Environment)  ，进行环境依赖配置。
+    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_Environment](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_Environment)  ，进行环境依赖配置。
 
 
 ## 部署<a name="zh-cn_topic_0219905762_section1872516528910"></a>
