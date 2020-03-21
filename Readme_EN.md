@@ -1,3 +1,5 @@
+English|[中文](Readme.md)
+
 # Dense Crowd Counting \(Python\)<a name="EN-US_TOPIC_0228752403"></a>
 
 Developers can deploy this application on the Atlas 200 DK or the AI acceleration cloud server to decode local MP4 files or RTSP video streams, predict the number of people in the crowd images, and send the result to the Presenter Server for storage and display.
