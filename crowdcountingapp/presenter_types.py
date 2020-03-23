@@ -30,7 +30,7 @@ class Point(object):
 class DetectionResult(object):
     def __init__(self):
         self.lt = Point()
-	self.rb = Point()
+        self.rb = Point()
         self.result_text = None
 
 
