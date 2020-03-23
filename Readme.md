@@ -23,9 +23,9 @@
 
     >![](public_sys-resources/icon-note.gif) **说明：**   
     >-   该快速部署脚本可以快速部署多个案例，请选择sample-crowdcounting-python案例部署即可。  
-    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式。转**[2. 常规部署](#li3208251440)**  
+    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式。转: **[2. 常规部署](#li3208251440)**  
 
-2.  <a name="li3208251440"></a>常规部署，请参考：  [https://gitee.com/Atlas200DK/sample-READEME/tree/master/sample-crowdcounting-python](https://gitee.com/Atlas200DK/sample-READEME/tree/master/sample-crowdcounting-python)  。
+2.  <a name="li3208251440"></a>常规部署，请参考：  [https://gitee.com/Atlas200DK/sample-README/tree/master/sample-crowdcounting-python](https://gitee.com/Atlas200DK/sample-README/tree/master/sample-crowdcounting-python)  。
 
     >![](public_sys-resources/icon-note.gif) **说明：**   
     >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程更加了解。  
@@ -37,11 +37,11 @@
 
 1.  配置开发板联网。
 
-    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_NetworkConnect](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_NetworkConnect)  ，进行开发板网络连接配置。
+    请参考[https://gitee.com/Atlas200DK/sample-README/tree/master/DK\_NetworkConnect](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_NetworkConnect)  ，进行开发板网络连接配置。
 
-2.  安装环境依赖。、
+2.  安装环境依赖。
 
-    请参考[https://gitee.com/Atlas200DK/sample-READEME/tree/master/DK\_Environment](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_Environment)  ，进行环境依赖配置。
+    请参考[https://gitee.com/Atlas200DK/sample-README/tree/master/DK\_Environment](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_Environment)  ，进行环境依赖配置。
 
 
 ## 部署<a name="zh-cn_topic_0219905762_section1872516528910"></a>
@@ -116,7 +116,7 @@
 
     **python main.py** _channel_
 
-    -   _channel: _输入的视频文件名或者RTSP流地址
+    -   _channel:_ 输入的视频文件名或者RTSP流地址
 
     视频文件运行的命令示例如下所示：
 
@@ -129,7 +129,7 @@
     >![](public_sys-resources/icon-note.gif) **说明：**   
     >可使用ctrl+c停止程序  
 
-4.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站，详细可参考[启动Presenter Server](zh-cn_topic_0228757087.md#li156931456596)。
+4.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站。
 
     等待Presenter Agent传输数据给服务端，单击“Refresh“刷新，当有数据时相应的Channel 的Status变成绿色，如[图 Presenter Server界面](#zh-cn_topic_0228757087_fig113691556202312)所示。
 
