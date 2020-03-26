@@ -1,144 +1,144 @@
-中文|[English](Readme_EN.md)
+English|[中文](Readme_cn.md)
 
-# 密集人群人数统计（Python）<a name="ZH-CN_TOPIC_0228752403"></a>
+# Dense Crowd Counting \(Python\)<a name="EN-US_TOPIC_0228752403"></a>
 
-开发者将本应用部署至Atlas 200 DK或者AI加速云服务器上实现对本地mp4文件或者RTSP视频流进行解码，对视频帧中的人群图像进行人头数量的预测，并将预测的结果信息发送至Presenter Server端进行展示。
+Developers can deploy this application on the Atlas 200 DK or the AI acceleration cloud server to decode local MP4 files or RTSP video streams, predict the number of people in the crowd images, and send the result to the Presenter Server for storage and display.
 
-当前分支中的应用适配**1.3.0.0**与**1.32.0.0及以上**版本的[DDK&RunTime](https://ascend.huawei.com/resources)。
+The current application adapts to  [DDK&RunTime](https://ascend.huawei.com/resources)  of 1.3.0.0 as well as 1.32.0.0 and later versions.
 
-## 前提条件<a name="zh-cn_topic_0219905762_section137245294533"></a>
+## Prerequisites<a name="en-us_topic_0219905762_section137245294533"></a>
 
-部署此Sample前，需要准备好以下环境：
+Before deploying this sample, ensure that:
 
--   已完成Mind Studio的安装。
+-   Mind Studio  has been installed.
 
--   已完成Atlas 200 DK开发者板与Mind Studio的连接，SD卡的制作、编译环境的配置等。
--   由于需要配置开发板联网，默认设置为USB连接，开发板地址为192.168.1.2
+-   The Atlas 200 DK developer board has been connected to  Mind Studio, the SD card has been created, and the build environment has been configured.
+-   The developer board is connected to the Internet over the USB port by default. The IP address of the developer board is  **192.168.1.2**.
 
-## 样例部署<a name="section412811285117"></a>
+## Sample Deployment<a name="section412811285117"></a>
 
-可以选择如下快速部署或者常规方法部署，二选一即可：
+You can use either of the following methods:
 
-1.  快速部署，请参考：  [https://gitee.com/Atlas200DK/faster-deploy](https://gitee.com/Atlas200DK/faster-deploy)  。
+1.  Quick deployment: visit  [https://github.com/Atlas200dk/faster-deploy](https://github.com/Atlas200dk/faster-deploy).
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该快速部署脚本可以快速部署多个案例，请选择sample-crowdcounting-python案例部署即可。  
-    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式。转: **[2. 常规部署](#li3208251440)**  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   The quick deployment script can be used to deploy multiple samples rapidly. Select  **sample-crowdcounting-python**.  
+    >-   The quick deployment script automatically completes code download, model conversion, and environment variable configuration. To learn about the detailed deployment process, go to  **[2. Common deployment](#li3208251440)**.  
 
-2.  <a name="li3208251440"></a>常规部署，请参考：  [https://gitee.com/Atlas200DK/sample-README/tree/master/sample-crowdcounting-python](https://gitee.com/Atlas200DK/sample-README/tree/master/sample-crowdcounting-python)  。
+2.  <a name="li3208251440"></a>Common deployment: visit  [https://github.com/Atlas200dk/sample-README/tree/master/sample-crowdcounting-python](https://github.com/Atlas200dk/sample-README/tree/master/sample-crowdcounting-python).
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程更加了解。  
-
-
-## 环境配置<a name="section681934411710"></a>
-
-**注：开发板上hiai库、opencv库、相关依赖已安装可跳过此步骤。**
-
-1.  配置开发板联网。
-
-    请参考[https://gitee.com/Atlas200DK/sample-README/tree/master/DK\_NetworkConnect](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_NetworkConnect)  ，进行开发板网络连接配置。
-
-2.  安装环境依赖。
-
-    请参考[https://gitee.com/Atlas200DK/sample-README/tree/master/DK\_Environment](https://gitee.com/Atlas200DK/sample-README/tree/master/DK_Environment)  ，进行环境依赖配置。
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   In this deployment mode, you need to manually download code, convert models, and configure environment variables.  
 
 
-## 部署<a name="zh-cn_topic_0219905762_section1872516528910"></a>
+## Environment Settings<a name="section681934411710"></a>
 
-1.  以Mind Studio安装用户进入crowdcounting-python应用代码所在根目录，如：$HOME/sample-crowdcounting-python。
-2.  <a name="zh-cn_topic_0228757087_li9634105881418"></a>执行部署脚本，进行工程环境准备，Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
+Note: If the HiAI library, OpenCV library, and related dependencies have been installed on the Atlas 200 DK, skip this step.
+
+1.  Configure the network connection of the developer board.
+
+    Configure the network connection of the developer board by referring to  [https://github.com/Atlas200dk/sample-README/tree/master/DK\_NetworkConnect](https://github.com/Atlas200dk/sample-README/tree/master/DK_NetworkConnect).
+
+2.  Install the environment dependency.
+
+    Configure the environment dependency by referring to  [https://github.com/Atlas200dk/sample-README/tree/master/DK\_Environment](https://github.com/Atlas200dk/sample-README/tree/master/DK_Environment).
+
+
+## Deployment<a name="en-us_topic_0219905762_section1872516528910"></a>
+
+1.  Go to the root directory where the crowdcounting-python application code is located as the  Mind Studio  installation user, for example,  **$HOME/sample-crowdcounting-python**.
+2.  <a name="en-us_topic_0228757087_li9634105881418"></a>Run the deployment script to prepare the project environment, including configuring Presenter Server. Presenter Server is used to receive the data sent by the application and display the result through the browser.
 
     **bash deploy.sh** _host\_ip_
 
-    -   _host\_ip_：Atlas 200 DK开发者板的IP地址。
+    -   _host\_ip_: indicates the IP address of the Atlas 200 DK developer board.
 
-    命令示例：
+    Command example:
 
     **bash deploy.sh 192.168.1.2**
 
-    当提示“Please choose one to show the presenter in browser\(default: 127.0.0.1\):“时，请输入在浏览器中访问Presenter Server服务所使用的IP地址（一般为虚拟网卡的IP地址。）
+    When the message  **Please choose one to show the presenter in browser\(default: 127.0.0.1\):**  is displayed, enter the IP address used for accessing the Presenter Server service in the browser. Generally, the IP address is the IP address for the virtual NIC.
 
-    请在“Current environment valid ip list“中选择通过浏览器访问Presenter Server服务使用的IP地址。
+    Select the IP address used by the browser to access the Presenter Server service in  **Current environment valid ip list**.
 
-3.  启动Presenter Server。
+3.  Start Presenter Server.
 
-    执行如下命令在后台启动密集人群人数统计应用的Presenter Server主程序。
+    Run the following command to start the Presenter Server program of the crowd counting application in the background:
 
     **bash start\_presenterserver.sh**
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >执行此脚本会先杀死后台的其他Presenter Server进程。后台无正在执行的进程会提示presenter server not in process；后台有正在执行的进程会提示presenter server stop success。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >Running this script will kill other Presenter Server processes on the server. If no process is running on the background, the message "presenter server not in process" is displayed. If a process is running in the background, the message "presenter server stop success" is displayed.  
 
-    如[图 Presenter Server进程启动](#zh-cn_topic_0228757087_fig69531305324)所示，表示presenter\_server的服务启动成功。
+    If the information shown in  [Figure 1](#en-us_topic_0228757087_fig69531305324)  is displayed, the Presenter Server service has been started successfully.
 
-    **图 1**  Presenter Server进程启动<a name="zh-cn_topic_0228757087_fig69531305324"></a>  
-    ![](figures/Presenter-Server进程启动-55.png "Presenter-Server进程启动-55")
+    **Figure  1**  Starting the Presenter Server process<a name="en-us_topic_0228757087_fig69531305324"></a>  
+    ![](figures/starting-the-presenter-server-process-53.png "starting-the-presenter-server-process-53")
 
-    使用上图提示的URL登录Presenter Server，仅支持Chrome浏览器。IP地址为[步骤2](#zh-cn_topic_0228757087_li9634105881418)中输入的IP地址，端口号默为7007，如下图所示，表示Presenter Server启动成功。
+    Use the URL shown in the preceding figure to log in to Presenter Server \(only Google Chrome is supported\). The IP address is that typed in  [2](#en-us_topic_0228757087_li9634105881418)  and the default port number is  **7007**. The following figure indicates that Presenter Server has been started successfully.
 
-    **图 2**  主页显示<a name="zh-cn_topic_0228757087_fig64391558352"></a>  
-    ![](figures/主页显示-56.png "主页显示-56")
+    **Figure  2**  Home page<a name="en-us_topic_0228757087_fig64391558352"></a>  
+    ![](figures/home-page-54.png "home-page-54")
 
-    Presenter Server、Mind Studio与Atlas 200 DK之间通信使用的IP地址示例如下图所示：
+    The following figure shows the IP address used by Presenter Server and  Mind Studio  to communicate with the Atlas 200 DK.
 
-    **图 3**  IP地址示例<a name="zh-cn_topic_0228757087_fig1881532172010"></a>  
-    ![](figures/IP地址示例-57.png "IP地址示例-57")
+    **Figure  3**  IP address example<a name="en-us_topic_0228757087_fig1881532172010"></a>  
+    ![](figures/ip-address-example-55.png "ip-address-example-55")
 
-    其中：
+    In the preceding figure:
 
-    -   Atlas 200 DK开发者板使用的IP地址为192.168.1.2（USB方式连接）。
-    -   Presenter Server与Atlas 200 DK通信的IP地址为UI Host服务器中与Atlas 200 DK在同一网段的IP地址，例如：192.168.1.223。
-    -   通过浏览器访问Presenter Server的IP地址本示例为：10.10.0.1，由于Presenter Server与Mind Studio部署在同一服务器，此IP地址也为通过浏览器访问Mind Studio的IP。
+    -   The IP address of the Atlas 200 DK developer board is  **192.168.1.2**  \(connected in USB mode\).
+    -   The IP address used by Presenter Server to communicate with the Atlas 200 DK is in the same network segment as the IP address of the Atlas 200 DK on the UI Host server. For example:  **192.168.1.223**.
+    -   The following describes how to access the IP address \(such as  **10.10.0.1**\) of Presenter Server using a browser. Because Presenter Server and  Mind Studio  are deployed on the same server, you can access  Mind Studio  through the browser using the same IP address.
 
-4.  crowdcounting-python应用支持解析本地视频和RTSP视频流。
-    -   如果需要解析本地视频，需要将视频文件传到Host侧。
+4.  Parse local videos and RTSP video streams using the crowd counting \(Python\) application.
+    -   Before parsing a local video, upload the video file to the host.
 
-        例如将视频文件crowd.mp4上传到Host侧的“/home/HwHiAiUser/sample“目录下。
+        For example, upload the video file  **crowd.mp4**  to the  **/home/HwHiAiUser/sample**  directory on the host.
 
-        >![](public_sys-resources/icon-note.gif) **说明：**   
-        >支持H264与H265格式的MP4文件，如果MP4文件需要剪辑，建议使用开源工具ffmpeg，使用其他工具剪辑的视频文件ffmpeg工具可能不支持解析。  
+        >![](public_sys-resources/icon-note.gif) **NOTE:**   
+        >H.264 and H.265 MP4 files are supported. If an MP4 file needs to be edited, you are advised to use FFmpeg. If a video file is edited by other tools, FFmpeg may fail to parse the file.  
 
-    -   如果仅解析RTSP视频流，本步骤可跳过。
+    -   If only RTSP video streams need to be parsed, skip this step.
 
 
-## 运行<a name="zh-cn_topic_0219905762_section6245151616426"></a>
+## Run<a name="en-us_topic_0219905762_section6245151616426"></a>
 
-1.  在Mind Studio所在Ubuntu服务器中，以HwHiAiUser用户SSH登录到Host侧。
+1.  Log in to the host side as the  **HwHiAiUser**  user in SSH mode on Ubuntu Server where  Mind Studio  is located.
 
     **ssh HwHiAiUser@192.168.1.2**
 
-2.  在HwHiAiUser用户下进入应用代码所在目录。
+2.  Go to the directory where the application code is stored as the  **HwHiAiUser**  user.
 
     **cd \~/HIAI\_PROJECTS/sample-crowdcounting-python**
 
-3.  执行应用程序。
+3.  Run the application.
 
     **python main.py** _channel_
 
-    -   _channel:_ 输入的视频文件名或者RTSP流地址
+    -   _channel_: input video file name or RTSP stream address
 
-    视频文件运行的命令示例如下所示：
+    The following is a command example for running video files:
 
     **python main.py /home/HwHiAiUser/sample/crowd.mp4**
 
-    RTSP视频流的命令示例如下所示：
+    The following is a command example for running RTSP video streams:
 
     **python main.py rtsp://192.168.2.37:554/cam/realmonitor?channel=1&subtype=0**
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >可使用ctrl+c停止程序  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >You can press  **Ctrl**+**C**  to stop the application.  
 
-4.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站。
+4.  Use the URL displayed upon the start of the Presenter Server service to log in to Presenter Server.
 
-    等待Presenter Agent传输数据给服务端，单击“Refresh“刷新，当有数据时相应的Channel 的Status变成绿色，如[图 Presenter Server界面](#zh-cn_topic_0228757087_fig113691556202312)所示。
+    Wait for Presenter Agent to transmit data to the server. Click  **Refresh**. When there is data, the icon in the  **Status**  column for the corresponding channel changes to green, as shown in  [Figure 4](#en-us_topic_0228757087_fig113691556202312).
 
-    **图 4**  Presenter Server界面<a name="zh-cn_topic_0228757087_fig113691556202312"></a>  
-    ![](figures/Presenter-Server界面-54.png "Presenter-Server界面-54")
+    **Figure  4**  Presenter Server page<a name="en-us_topic_0228757087_fig113691556202312"></a>  
+    ![](figures/presenter-server-page-52.png "presenter-server-page-52")
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   Presenter Server最多支持10路Channel同时显示，每个  _presenter\_view\_app\_name_  对应一路Channel。  
-    >-   由于硬件的限制，每一路支持的最大帧率是20fps，受限于网络带宽的影响，帧率会自动适配为较低的帧率进行展示。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   The Presenter Server supports a maximum of 10 channels at the same time \(each  _presenter\_view\_app\_name_  parameter corresponds to a channel\).  
+    >-   Due to hardware limitations, each channel supports a maximum frame rate of 20 fps. A lower frame rate is automatically used when the network bandwidth is low.  
 
-5.  单击右侧对应的View Name链接，比如上图的“video”，查看结果。
+5.  Click a link in the  **View Name**  column, for example,  **video**  in the preceding figure, and view the result.
 
