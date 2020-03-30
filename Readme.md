@@ -1,12 +1,12 @@
 English|[中文](Readme_cn.md)
 
-# Dense Crowd Counting \(Python\)<a name="EN-US_TOPIC_0228752403"></a>
+# Dense Crowd Counting \(Python\)<a name="EN-US_TOPIC_0232652767"></a>
 
 Developers can deploy this application on the Atlas 200 DK or the AI acceleration cloud server to decode local MP4 files or RTSP video streams, predict the number of people in the crowd images, and send the result to the Presenter Server for storage and display.
 
 The current application adapts to  [DDK&RunTime](https://ascend.huawei.com/resources)  of 1.3.0.0 as well as 1.32.0.0 and later versions.
 
-## Prerequisites<a name="en-us_topic_0219905762_section137245294533"></a>
+## Prerequisites<a name="en-us_topic_0228752403_en-us_topic_0219905762_section137245294533"></a>
 
 Before deploying this sample, ensure that:
 
@@ -15,7 +15,7 @@ Before deploying this sample, ensure that:
 -   The Atlas 200 DK developer board has been connected to  Mind Studio, the SD card has been created, and the build environment has been configured.
 -   The developer board is connected to the Internet over the USB port by default. The IP address of the developer board is  **192.168.1.2**.
 
-## Sample Deployment<a name="section412811285117"></a>
+## Sample Deployment<a name="en-us_topic_0228752403_section412811285117"></a>
 
 You can use either of the following methods:
 
@@ -23,31 +23,31 @@ You can use either of the following methods:
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**   
     >-   The quick deployment script can be used to deploy multiple samples rapidly. Select  **sample-crowdcounting-python**.  
-    >-   The quick deployment script automatically completes code download, model conversion, and environment variable configuration. To learn about the detailed deployment process, go to  **[2. Common deployment](#li3208251440)**.  
+    >-   The quick deployment script automatically completes code download, model conversion, and environment variable configuration. To learn about the detailed deployment process, go to  [2. Common deployment](#en-us_topic_0228752403_li3208251440).  
 
-2.  <a name="li3208251440"></a>Common deployment: visit  [https://github.com/Atlas200dk/sample-README/tree/master/sample-crowdcounting-python](https://github.com/Atlas200dk/sample-README/tree/master/sample-crowdcounting-python).
+2.  <a name="en-us_topic_0228752403_li3208251440"></a>Common deployment: visit  [https://github.com/Atlas200dk/sample-README/tree/master/sample-crowdcounting-python](https://github.com/Atlas200dk/sample-READEME/tree/master/sample-crowdcounting-python).
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**   
     >-   In this deployment mode, you need to manually download code, convert models, and configure environment variables.  
 
 
-## Environment Settings<a name="section681934411710"></a>
+## Environment Settings<a name="en-us_topic_0228752403_section681934411710"></a>
 
-Note: If the HiAI library, OpenCV library, and related dependencies have been installed on the Atlas 200 DK, skip this step.
+Note: If the HiAI library, OpenCV library, and related dependencies have been installed on the developer board, skip this step.
 
 1.  Configure the network connection of the developer board.
 
-    Configure the network connection of the developer board by referring to  [https://github.com/Atlas200dk/sample-README/tree/master/DK\_NetworkConnect](https://github.com/Atlas200dk/sample-README/tree/master/DK_NetworkConnect).
+    Configure the network connection of the Atlas DK developer board by referring to  [https://github.com/Atlas200dk/sample-README/tree/master/DK\_NetworkConnect](https://github.com/Atlas200dk/sample-README/tree/master/DK_NetworkConnect).
 
-2.  Install the environment dependency.
+2.  Install the environment dependencies.
 
     Configure the environment dependency by referring to  [https://github.com/Atlas200dk/sample-README/tree/master/DK\_Environment](https://github.com/Atlas200dk/sample-README/tree/master/DK_Environment).
 
 
-## Deployment<a name="en-us_topic_0219905762_section1872516528910"></a>
+## Deployment<a name="en-us_topic_0228752403_en-us_topic_0219905762_section1872516528910"></a>
 
 1.  Go to the root directory where the crowdcounting-python application code is located as the  Mind Studio  installation user, for example,  **$HOME/sample-crowdcounting-python**.
-2.  <a name="en-us_topic_0228757087_li9634105881418"></a>Run the deployment script to prepare the project environment, including configuring Presenter Server. Presenter Server is used to receive the data sent by the application and display the result through the browser.
+2.  <a name="en-us_topic_0228752403_en-us_topic_0228757087_li9634105881418"></a>Run the deployment script to prepare the project environment, including configuring Presenter Server. Presenter Server is used to receive the data sent by the application and display the result through the browser.
 
     **bash deploy.sh** _host\_ip_
 
@@ -57,7 +57,7 @@ Note: If the HiAI library, OpenCV library, and related dependencies have been in
 
     **bash deploy.sh 192.168.1.2**
 
-    When the message  **Please choose one to show the presenter in browser\(default: 127.0.0.1\):**  is displayed, enter the IP address used for accessing the Presenter Server service in the browser. Generally, the IP address is the IP address for the virtual NIC.
+    When the message  **Please choose one to show the presenter in browser\(default: 127.0.0.1\):**  is displayed, enter the IP address used for accessing the Presenter Server service in the browser. Generally, the IP address is that configured for the virtual NIC.
 
     Select the IP address used by the browser to access the Presenter Server service in  **Current environment valid ip list**.
 
@@ -68,31 +68,32 @@ Note: If the HiAI library, OpenCV library, and related dependencies have been in
     **bash start\_presenterserver.sh**
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**   
-    >Running this script will kill other Presenter Server processes on the server. If no process is running on the background, the message "presenter server not in process" is displayed. If a process is running in the background, the message "presenter server stop success" is displayed.  
+    >-   Running this script will kill other Presenter Server processes on the server. If no process is running on the background, the message "presenter server not in process" is displayed. If a process is running in the background, the message "presenter server stop success" is displayed.  
+    >-   After the application is stopped, you can run the  **bash stop\_presenterserver.sh**  command to stop Presenter Server.  
 
-    If the information shown in  [Figure 1](#en-us_topic_0228757087_fig69531305324)  is displayed, the Presenter Server service has been started successfully.
+    If the information shown in  [Figure 1](#en-us_topic_0228752403_en-us_topic_0228757087_fig69531305324)  is displayed, the Presenter Server service has been started successfully.
 
-    **Figure  1**  Starting the Presenter Server process<a name="en-us_topic_0228757087_fig69531305324"></a>  
-    ![](figures/starting-the-presenter-server-process-53.png "starting-the-presenter-server-process-53")
+    **Figure  1**  Starting the Presenter Server process<a name="en-us_topic_0228752403_en-us_topic_0228757087_fig69531305324"></a>  
+    ![](figures/starting-the-presenter-server-process.png "starting-the-presenter-server-process")
 
-    Use the URL shown in the preceding figure to log in to Presenter Server \(only Google Chrome is supported\). The IP address is that typed in  [2](#en-us_topic_0228757087_li9634105881418)  and the default port number is  **7007**. The following figure indicates that Presenter Server has been started successfully.
+    Use the URL shown in the preceding figure to log in to Presenter Server. The IP address is that typed in  [Step 2](#en-us_topic_0228752403_en-us_topic_0228757087_li9634105881418)  and the default port number is  **7007**. The following figure indicates that Presenter Server has been started successfully.
 
-    **Figure  2**  Home page<a name="en-us_topic_0228757087_fig64391558352"></a>  
-    ![](figures/home-page-54.png "home-page-54")
+    **Figure  2**  Home page<a name="en-us_topic_0228752403_en-us_topic_0228757087_fig64391558352"></a>  
+    ![](figures/home-page.png "home-page")
 
     The following figure shows the IP address used by Presenter Server and  Mind Studio  to communicate with the Atlas 200 DK.
 
-    **Figure  3**  IP address example<a name="en-us_topic_0228757087_fig1881532172010"></a>  
-    ![](figures/ip-address-example-55.png "ip-address-example-55")
+    **Figure  3**  IP address example<a name="en-us_topic_0228752403_en-us_topic_0228757087_fig1881532172010"></a>  
+    ![](figures/ip-address-example.png "ip-address-example")
 
     In the preceding figure:
 
     -   The IP address of the Atlas 200 DK developer board is  **192.168.1.2**  \(connected in USB mode\).
-    -   The IP address used by Presenter Server to communicate with the Atlas 200 DK is in the same network segment as the IP address of the Atlas 200 DK on the UI Host server. For example:  **192.168.1.223**.
+    -   The IP address used by Presenter Server to communicate with the Atlas 200 DK is in the same network segment as the IP address of the Atlas 200 DK on the UI Host server, for example,  **192.168.1.223**.
     -   The following describes how to access the IP address \(such as  **10.10.0.1**\) of Presenter Server using a browser. Because Presenter Server and  Mind Studio  are deployed on the same server, you can access  Mind Studio  through the browser using the same IP address.
 
 4.  Parse local videos and RTSP video streams using the crowd counting \(Python\) application.
-    -   Before parsing a local video, upload the video file to the host.
+    -   To parse a local video, upload the video file to the host.
 
         For example, upload the video file  **crowd.mp4**  to the  **/home/HwHiAiUser/sample**  directory on the host.
 
@@ -102,7 +103,7 @@ Note: If the HiAI library, OpenCV library, and related dependencies have been in
     -   If only RTSP video streams need to be parsed, skip this step.
 
 
-## Run<a name="en-us_topic_0219905762_section6245151616426"></a>
+## Run<a name="en-us_topic_0228752403_en-us_topic_0219905762_section6245151616426"></a>
 
 1.  Log in to the host side as the  **HwHiAiUser**  user in SSH mode on Ubuntu Server where  Mind Studio  is located.
 
@@ -131,10 +132,10 @@ Note: If the HiAI library, OpenCV library, and related dependencies have been in
 
 4.  Use the URL displayed upon the start of the Presenter Server service to log in to Presenter Server.
 
-    Wait for Presenter Agent to transmit data to the server. Click  **Refresh**. When there is data, the icon in the  **Status**  column for the corresponding channel changes to green, as shown in  [Figure 4](#en-us_topic_0228757087_fig113691556202312).
+    Wait for Presenter Agent to transmit data to the server. Click  **Refresh**. When there is data, the icon in the  **Status**  column for the corresponding channel changes to green, as shown in  [Figure 4](#en-us_topic_0228752403_en-us_topic_0228757087_fig113691556202312).
 
-    **Figure  4**  Presenter Server page<a name="en-us_topic_0228757087_fig113691556202312"></a>  
-    ![](figures/presenter-server-page-52.png "presenter-server-page-52")
+    **Figure  4**  Presenter Server page<a name="en-us_topic_0228752403_en-us_topic_0228757087_fig113691556202312"></a>  
+    ![](figures/presenter-server-page.png "presenter-server-page")
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**   
     >-   The Presenter Server supports a maximum of 10 channels at the same time \(each  _presenter\_view\_app\_name_  parameter corresponds to a channel\).  
